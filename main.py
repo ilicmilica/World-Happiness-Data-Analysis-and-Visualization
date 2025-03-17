@@ -2,15 +2,14 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 from functions import topN, top3_corr, plot_world_map
+from sklearn.model_selection import train_test_split
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
 
-# path to the folder that contains the CSV files
-data_folder = "Project1/data"
-
-df_2015 = pd.read_csv(os.path.join(data_folder, "2015.csv"))
-df_2016 = pd.read_csv(os.path.join(data_folder, "2016.csv"))
-df_2017 = pd.read_csv(os.path.join(data_folder, "2017.csv"))
-df_2018 = pd.read_csv(os.path.join(data_folder, "2018.csv"))
-df_2019 = pd.read_csv(os.path.join(data_folder, "2019.csv"))
+# upload the CSV files to dataframes
+df_2015 = pd.read_csv(os.path.join("data", "2015.csv"))
+df_2016 = pd.read_csv(os.path.join("data", "2016.csv"))
+df_2017 = pd.read_csv(os.path.join("data", "2017.csv"))
 
 # plot top 10 happiest and least happy countries
 topN(df_2015, N=10)
@@ -35,10 +34,6 @@ print(f"The region that dominates the top 10 least happy countries in 2015 is {r
 ##############################################
 
 # predict the happiness score of a country based on the top 3 features
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, mean_absolute_error, r2_score
-
 
 # prepare the data
 X = pd.concat([df_2015[top_features_2015], df_2016[top_features_2015], df_2017[top_features_2015]])
@@ -57,7 +52,6 @@ model.fit(X_train, y_train)
 y_pred = model.predict(X_test)
 
 # evaluate the model
-
 mae = mean_absolute_error(y_test, y_pred)
 rmse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
