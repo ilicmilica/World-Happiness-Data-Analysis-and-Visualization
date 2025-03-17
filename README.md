@@ -9,8 +9,7 @@ This project explores the World Happiness Report 2015, focusing on uncovering ke
 
 The chart below illustrates the top 10 countries with the highest and lowest Happiness Scores:
 
-![Top 10](https://github.com/user-attachments/assets/3a5cc745-d0fb-484f-a4de-ef97aabf00d8)
-
+![image](https://github.com/user-attachments/assets/833753e9-95e7-47ca-915b-2a20bede7639)
 
 ### Predictive Modeling:
 A predictive model was developed to estimate a country's Happiness Score based on influential features like GDP, health, and social support.
