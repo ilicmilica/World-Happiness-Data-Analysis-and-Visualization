@@ -32,9 +32,9 @@ def topN(df, N):
     plt.barh(df_sorted['Country'], df_sorted['Happiness Score'], color=colors)
 
     # add labels and title
-    plt.xlabel('Happiness Score')
-    plt.ylabel('Country')
-    plt.title(f'Top {N} most and least happy countries')
+    plt.xlabel('Happiness Score', fontsize=18)
+    plt.ylabel('Country', fontsize=18)
+    plt.title(f'Top {N} most and least happy countries', fontsize=20)
 
     # add numerical values to the end of each bar
     for index, value in enumerate(df_sorted["Happiness Score"]):
